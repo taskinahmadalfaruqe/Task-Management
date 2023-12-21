@@ -8,10 +8,9 @@ export const AuthContext = createContext(null);
 const auth = getAuth(app);
 
 const AuthProvider = ({ children }) => {
-    const axiosPublic= useAxios();
+    const axiosPublic = useAxios();
     const [userLoading, setUserLoading] = useState(true)
-    const [user, setUser] = useState(null)
-    // console.log(user)
+    const [user, setUser] = useState(null);
 
     // CREATE A USER WITH EMAIL AND PASSWORD
     const handelUserCreate = (email, password) => {
@@ -50,19 +49,7 @@ const AuthProvider = ({ children }) => {
     useEffect(() => {
         const currentUser = onAuthStateChanged(auth, (user) => {
             setUser(user);
-            if (user) {
-                const userInfo = { email: user.email }
-                axiosPublic.post('/jwt', userInfo)
-                    .then(res => {
-                        if (res.data.token) {
-                            localStorage.setItem('access-token', res.data.token);
-                            setUserLoading(false);
-                        }
-                    })
-            } else {
-                localStorage.removeItem('access-token');
-                setUserLoading(false);
-            }
+            setUserLoading(false)
         });
         return () => {
             currentUser();
