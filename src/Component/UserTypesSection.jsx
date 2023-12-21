@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 
 const UserCard = ({ userType, benefits }) => {
     return (

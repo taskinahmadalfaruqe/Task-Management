@@ -6,6 +6,8 @@ import ResisterPage from "../Pages/ResisterPage/ResisterPage";
 import ErrorPage from "../Pages/ErrorPage";
 import AboutPage from "../Pages/About/AboutPage";
 import PhotoPage from "../Pages/Photo/PhotoPage";
+import DashboardLayout from "../Layout/DashboardLayout";
+import DashboardHome from "../Pages/Dashboard/DashboardHome/DashboardHome";
 
 
 const Router = createBrowserRouter([
@@ -40,7 +42,13 @@ const Router = createBrowserRouter([
     },
     {
         path: '/dashboard',
-        element:<ResisterPage></ResisterPage>
+        element:<DashboardLayout></DashboardLayout>,
+        children:[
+            {
+                path:'/dashboard',
+                element: <DashboardHome></DashboardHome>
+            }
+        ]
     },
 ]
 );

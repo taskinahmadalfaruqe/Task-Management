@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const Footer = () => {
     const year = new Date().getFullYear();
     return (
-        <footer className="footer  footer-center p-10 bg-secondoryColor text-darkbg border-t border-t-primaryColor dark:bg-lightdarkbg dark:text-primaryColor mt-10">
+        <footer className="footer  footer-center p-10 bg-secondoryColor text-darkbg border-t border-t-primaryColor dark:bg-lightdarkbg dark:text-primaryColor">
             <div className="container">
                 <nav className="grid grid-flow-col gap-4">
                     <Link
