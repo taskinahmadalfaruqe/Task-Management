@@ -9,7 +9,7 @@ const DashboardLayout = () => {
         <div className="dark:bg-darkbg dark:text-whiteColor min-h-[100vh]">
             <Navbar></Navbar>
             <div className="grid grid-cols-4 container gap-5">
-                <div className=" hidden lg:flex col-span-1 bg-secondoryColor dark:bg-lightdarkbg py-5 min-h-[100vh]">
+                <div className=" hidden lg:flex justify-center items-start col-span-1 bg-secondoryColor dark:bg-lightdarkbg py-5 ">
                     <DashboardNav></DashboardNav>
                 </div>
                 <div className="col-span-4 lg:col-span-3">

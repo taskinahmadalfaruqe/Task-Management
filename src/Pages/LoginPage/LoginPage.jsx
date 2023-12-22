@@ -4,10 +4,16 @@ import Swal from "sweetalert2";
 import { FcGoogle } from 'react-icons/fc'
 import useAuth from "../../Hooks/useAuth";
 import { GoogleAuthProvider } from "firebase/auth";
+import { FacebookAuthProvider } from "firebase/auth";
+import { FaFacebook } from "react-icons/fa";
+
+
 
 const LoginPage = () => {
-    const { handelGoogleLogin, loginWithEmailPass } = useAuth();
-    const GoogleLogin = new (GoogleAuthProvider)
+    const { handelGoogleLogin, loginWithEmailPass, handelFacebookLogin } = useAuth();
+    const GoogleLogin = new GoogleAuthProvider();
+    const facebookprovider = new FacebookAuthProvider();
+
     const location = useLocation();
     const navigate = useNavigate()
 
@@ -73,6 +79,37 @@ const LoginPage = () => {
 
             });
     }
+
+
+    const loginWithFacebook = () => {
+        handelFacebookLogin(facebookprovider)
+            .then((result) => {
+                // Handle successful Facebook login
+                const user = result
+                console.log(user);
+                navigate(location?.state ? location.state : "/");
+                Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: 'User has been Login Successfully',
+                    showConfirmButton: false,
+                    timer: 1500,
+                    footer: `${user.email}` // or any other user data
+                });
+            })
+            .catch((error) => {
+                // Handle errors during login
+                const errorMessage = error.message;
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Something went wrong!',
+                    timer: 1500,
+                    footer: `${errorMessage}`
+                });
+            });
+    };
+
     return (
         <div className="flex flex-col justify-center items-center ">
             <div className="relative flex flex-col rounded-xl bg-transparent bg-clip-border  shadow-none">
@@ -134,14 +171,22 @@ const LoginPage = () => {
                     </p>
                 </form>
             </div>
-            <div className="">
+            <div className=" flex gap-5">
                 <button
                     onClick={loginWithGoogle}
                     className=" flex justify-center items-center gap-3 mt-6  w-full select-none rounded-lg bg-primaryColor py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-primaryColor/20 transition-all hover:shadow-lg hover:shadow-primaryColor/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
                     type="submit"
                     data-ripple-light="true"
                 >
-                    Contenu With Google <FcGoogle className="text-2xl"></FcGoogle>
+                    Continue With <FcGoogle className="text-2xl"></FcGoogle>
+                </button>
+                <button
+                    onClick={loginWithFacebook}
+                    className=" flex justify-center items-center gap-3 mt-6  w-full select-none rounded-lg bg-primaryColor py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-primaryColor/20 transition-all hover:shadow-lg hover:shadow-primaryColor/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                    type="submit"
+                    data-ripple-light="true"
+                >
+                    Continue With <FaFacebook className="text-2xl"></FaFacebook>
                 </button>
             </div>
         </div>

@@ -29,6 +29,11 @@ const AuthProvider = ({ children }) => {
         setUserLoading(true);
         return signInWithPopup(auth, googleProvider);
     }
+    //LOGIN WITH Facebook
+    const handelFacebookLogin = (facebookProvider) => {
+        setUserLoading(true);
+        return signInWithPopup(auth, facebookProvider);
+    }
 
     //UPDATE USER
     const handelUpadate = (name, photo) => {
@@ -64,6 +69,7 @@ const AuthProvider = ({ children }) => {
         handelUpadate,
         handelLogOut,
         handelGoogleLogin,
+        handelFacebookLogin,
     }
     return (
         <AuthContext.Provider value={value}>
