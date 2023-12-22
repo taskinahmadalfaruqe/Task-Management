@@ -13,7 +13,7 @@ function AddTask() {
         description: '',
         deadline: '',
         priority: 'low',
-        status: 'done'
+        status: 'todo'
     });
 
     const handleChange = (e) => {

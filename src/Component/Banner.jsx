@@ -8,7 +8,7 @@ const Banner = () => {
     const navigate= useNavigate();
     const handleExploreClick = () => {
         if(user){
-            navigate('/dashboard')
+            navigate('/dashboard/home')
         }else{
             navigate('/login')
         }

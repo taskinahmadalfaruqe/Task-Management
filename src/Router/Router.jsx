@@ -10,6 +10,7 @@ import DashboardLayout from "../Layout/DashboardLayout";
 import DashboardHome from "../Pages/Dashboard/DashboardHome/DashboardHome";
 import AddTask from "../Pages/Dashboard/AddTask";
 import UpdateTask from "../Pages/Dashboard/UpdateTask";
+import ChangeStatus from "../Pages/Dashboard/ChangeStatus";
 
 
 const Router = createBrowserRouter([
@@ -57,6 +58,10 @@ const Router = createBrowserRouter([
             {
                 path:'/dashboard/updateTask/:id',
                 element: <UpdateTask></UpdateTask>
+            },
+            {
+                path:'/dashboard/changeStatus/:id',
+                element: <ChangeStatus></ChangeStatus>
             },
         ]
     },

@@ -5,10 +5,10 @@ import LodeTaskData from "./LodeTaskData";
 
 const Task = () => {
     const axios = useAxios();
-    const [loding, setLoding]=useState(true)
-    const [todo, setTODo]=useState([]);
-    const [ongoing, setOnGoing]=useState([]);
-    const [done, setDone]=useState([]);
+    const [loding, setLoding] = useState(true)
+    const [todo, setTODo] = useState([]);
+    const [ongoing, setOnGoing] = useState([]);
+    const [done, setDone] = useState([]);
     useEffect(() => {
         axios.get('/taskInfo')
             .then(res => {
@@ -20,8 +20,8 @@ const Task = () => {
             })
     }, [axios])
 
-    if(loding){
-        return <p>loding............</p>
+    if (loding) {
+        return <div className="flex justify-center items-center text-primaryColor min-h-[30vh]"><span className="loading loading-bars loading-lg"></span></div>
     }
     return (
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 my-5">
@@ -29,12 +29,12 @@ const Task = () => {
                 <h2 className="text-center bg-secondoryColor p-1 text-darkbg font-semibold text-xl">TO-DO</h2>
                 <div className="text-center text-2xl font-semibold">
                     {
-                        todo?.length === 0 ? "Sorry No Data Found":""
+                        todo?.length === 0 ? "Sorry No Data Found" : ""
                     }
                 </div>
                 <div className="p-2 flex justify-center items-center flex-col gap-2 w-full">
                     {
-                        todo?.map(value=> <LodeTaskData key={value._id} value={value}></LodeTaskData>)
+                        todo?.map(value => <LodeTaskData key={value._id} value={value}></LodeTaskData>)
                     }
                 </div>
             </div>
@@ -43,12 +43,12 @@ const Task = () => {
                 <h2 className="text-center bg-secondoryColor p-1 text-darkbg font-semibold text-xl">On Going</h2>
                 <div className="text-center text-2xl font-semibold">
                     {
-                        ongoing?.length === 0 ? "Sorry No Data Found":""
+                        ongoing?.length === 0 ? "Sorry No Data Found" : ""
                     }
                 </div>
                 <div className="p-2 flex justify-center items-center flex-col gap-2 w-full">
                     {
-                        ongoing?.map(value=> <LodeTaskData key={value._id} value={value}></LodeTaskData>)
+                        ongoing?.map(value => <LodeTaskData key={value._id} value={value}></LodeTaskData>)
                     }
                 </div>
             </div>
@@ -57,16 +57,16 @@ const Task = () => {
                 <h2 className="text-center bg-secondoryColor p-1 text-darkbg font-semibold text-xl">Done</h2>
                 <div className="text-center text-2xl font-semibold">
                     {
-                        done?.length === 0 ? "Sorry No Data Found":""
+                        done?.length === 0 ? "Sorry No Data Found" : ""
                     }
                 </div>
                 <div className="p-2 flex justify-center items-center flex-col gap-2 w-full">
                     {
-                        done?.map(value=> <LodeTaskData key={value._id} value={value}></LodeTaskData>)
+                        done?.map(value => <LodeTaskData key={value._id} value={value}></LodeTaskData>)
                     }
                 </div>
             </div>
-            
+
         </div>
     );
 };
