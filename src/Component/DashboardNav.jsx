@@ -3,7 +3,6 @@ import useAuth from "../Hooks/useAuth";
 
 const DashboardNav = () => {
     const { user } = useAuth();
-    console.log(user)
     const image = user?.photoURL
     return (
         <div className="flex justify-center items-center text-center flex-col gap-5">
@@ -14,7 +13,7 @@ const DashboardNav = () => {
             </div>
             <div className="w-full px-5 flex justify-center items-center gap-5 flex-col">
                 <NavLink
-                    to={"/dashboard"}
+                    to={"/dashboard/home"}
                     className={({ isActive }) =>
                         isActive
                             ? "bg-primaryColor font-semibold text-lg w-full  text-whiteColor p-1 px-3 rounded-md"
@@ -24,17 +23,7 @@ const DashboardNav = () => {
                     Home
                 </NavLink>
                 <NavLink
-                    to={"/dashboarda"}
-                    className={({ isActive }) =>
-                        isActive
-                            ? "bg-primaryColor font-semibold text-lg w-full  text-whiteColor p-1 px-3 rounded-md"
-                            : " hover:bg-secondoryColor font-semibold w-full text-lg   p-1 px-3  dark:hover:bg-transparent dark:hover:text-primaryColor hover:text-whiteColor border border-primaryColor rounded-md"
-                    }
-                >
-                    Add Task
-                </NavLink>
-                <NavLink
-                    to={"/dashboarda"}
+                    to={"/dashboard/addtask"}
                     className={({ isActive }) =>
                         isActive
                             ? "bg-primaryColor font-semibold text-lg w-full  text-whiteColor p-1 px-3 rounded-md"

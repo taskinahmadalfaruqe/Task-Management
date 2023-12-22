@@ -12,7 +12,8 @@ const DashboardLayout = () => {
                 <div className="col-span-1 bg-secondoryColor dark:bg-lightdarkbg py-5 min-h-[100vh]">
                     <DashboardNav></DashboardNav>
                 </div>
-                <div className="col-span-3 bg-red-300">
+                <div className="col-span-3">
+                    <h1 className="text-center mt-5 font-bold text-primaryColor text-3xl">Welcome to Task Management Web..</h1>
                     <Outlet></Outlet>
                 </div>
             </div>

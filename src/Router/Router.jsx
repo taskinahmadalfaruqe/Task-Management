@@ -8,6 +8,8 @@ import AboutPage from "../Pages/About/AboutPage";
 import PhotoPage from "../Pages/Photo/PhotoPage";
 import DashboardLayout from "../Layout/DashboardLayout";
 import DashboardHome from "../Pages/Dashboard/DashboardHome/DashboardHome";
+import AddTask from "../Pages/Dashboard/AddTask";
+import UpdateTask from "../Pages/Dashboard/UpdateTask";
 
 
 const Router = createBrowserRouter([
@@ -45,9 +47,17 @@ const Router = createBrowserRouter([
         element:<DashboardLayout></DashboardLayout>,
         children:[
             {
-                path:'/dashboard',
+                path:'/dashboard/home',
                 element: <DashboardHome></DashboardHome>
-            }
+            },
+            {
+                path:'/dashboard/addtask',
+                element: <AddTask></AddTask>
+            },
+            {
+                path:'/dashboard/updateTask/:id',
+                element: <UpdateTask></UpdateTask>
+            },
         ]
     },
 ]

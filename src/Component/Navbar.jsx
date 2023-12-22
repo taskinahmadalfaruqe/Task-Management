@@ -76,16 +76,31 @@ const Navbar = () => {
                 Photo
             </NavLink>
             {
-                user ? <NavLink
-                    to={"/dashboard"}
-                    className={({ isActive }) =>
-                        isActive
-                            ? "bg-primaryColor font-semibold text-lg  text-whiteColor p-1 px-3 rounded-md"
-                            : " hover:bg-secondoryColor font-semibold text-lg  border-primaryColor p-1 px-3 rounded-md dark:hover:bg-transparent dark:hover:text-primaryColor"
-                    }
-                >
-                    Dashboard
-                </NavLink> : ""
+                user ?
+                    <>
+                        <NavLink
+                            to={"/dashboard/home"}
+                            className={({ isActive }) =>
+                                isActive
+                                    ? "bg-primaryColor font-semibold text-lg  text-whiteColor p-1 px-3 rounded-md"
+                                    : " hover:bg-secondoryColor font-semibold text-lg  p-1 px-3 rounded-md dark:hover:bg-transparent dark:hover:text-primaryColor "
+                            }
+                        >
+                            Dashboard
+                        </NavLink>
+                        <NavLink
+                            to={"/dashboard/addtask"}
+                            className={({ isActive }) =>
+                                isActive
+                                    ? "bg-primaryColor font-semibold text-lg   text-whiteColor p-1 px-3 rounded-md min-w-fit lg:hidden"
+                                    : " hover:bg-secondoryColor font-semibold w-full text-lg   p-1 px-3  dark:hover:bg-transparent dark:hover:text-primaryColor hover:text-whiteColor  rounded-md min-w-fit xl:hidden"
+                            }
+                        >
+                            Add Task
+                        </NavLink>
+                    </>
+
+                    : ""
             }
 
 
@@ -121,7 +136,7 @@ const Navbar = () => {
 
                                     <div className="flex justify-center items-center gap-5 w-full flex-col">
                                         <Link
-                                            to={'/dashboard'}
+                                            to={'/dashboard/home'}
                                             className=" border-primaryColor bg-primaryColor hover:text-primaryColor hover:bg-whiteColor hover:border-primaryColor font-semibold text-lg uppercase  p-1 px-3 rounded-md text-whiteColor w-full">
                                             Dashboard
                                         </Link>
