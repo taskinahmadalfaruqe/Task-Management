@@ -5,12 +5,12 @@ import LoginPage from "../Pages/LoginPage/LoginPage";
 import ResisterPage from "../Pages/ResisterPage/ResisterPage";
 import ErrorPage from "../Pages/ErrorPage";
 import AboutPage from "../Pages/About/AboutPage";
-import PhotoPage from "../Pages/Photo/PhotoPage";
 import DashboardLayout from "../Layout/DashboardLayout";
 import DashboardHome from "../Pages/Dashboard/DashboardHome/DashboardHome";
 import AddTask from "../Pages/Dashboard/AddTask";
 import UpdateTask from "../Pages/Dashboard/UpdateTask";
 import ChangeStatus from "../Pages/Dashboard/ChangeStatus";
+import ReviewsPage from "../Pages/Reviews/ReviewsPage";
 
 
 const Router = createBrowserRouter([
@@ -28,8 +28,8 @@ const Router = createBrowserRouter([
                 element:<AboutPage></AboutPage>
             },
             {
-                path: '/photo',
-                element:<PhotoPage></PhotoPage>
+                path: '/reviews',
+                element:<ReviewsPage></ReviewsPage>
             },
             {
                 path: '/login',

@@ -66,14 +66,14 @@ const Navbar = () => {
             </NavLink>
 
             <NavLink
-                to={"/photo"}
+                to={"/reviews"}
                 className={({ isActive }) =>
                     isActive
                         ? "bg-primaryColor font-semibold text-lg  text-whiteColor p-1 px-3 rounded-md"
                         : " hover:bg-secondoryColor font-semibold text-lg  border-primaryColor p-1 px-3 rounded-md dark:hover:bg-transparent dark:hover:text-primaryColor"
                 }
             >
-                Photo
+                Feedback
             </NavLink>
             {
                 user ?

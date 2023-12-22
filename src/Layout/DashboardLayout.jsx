@@ -9,10 +9,10 @@ const DashboardLayout = () => {
         <div className="dark:bg-darkbg dark:text-whiteColor min-h-[100vh]">
             <Navbar></Navbar>
             <div className="grid grid-cols-4 container gap-5">
-                <div className="col-span-1 bg-secondoryColor dark:bg-lightdarkbg py-5 min-h-[100vh]">
+                <div className=" hidden lg:flex col-span-1 bg-secondoryColor dark:bg-lightdarkbg py-5 min-h-[100vh]">
                     <DashboardNav></DashboardNav>
                 </div>
-                <div className="col-span-3">
+                <div className="col-span-4 lg:col-span-3">
                     <h1 className="text-center mt-5 font-bold text-primaryColor text-3xl">Welcome to Task Management Web..</h1>
                     <Outlet></Outlet>
                 </div>

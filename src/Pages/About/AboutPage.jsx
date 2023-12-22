@@ -1,11 +1,12 @@
 import Banner from "../../Component/Banner";
+import OurTeam from "../../Component/OurTeam/OurTeam";
 
 
 const AboutPage = () => {
     return (
         <div>
             <Banner></Banner>
-            <div>Meet Our team</div>
+            <OurTeam></OurTeam>
         </div>
     );
 };
